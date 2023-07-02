@@ -60,7 +60,7 @@ const InvestmentForm = (props) => {
           />
         </p>
       </Card>
-      <Card className={`${styles["input-group "]}`}>
+      <Card className={`${styles["input-group"]}`}>
         <p>
           <label htmlFor="expected-return">
             Expected Interest (%, per year)

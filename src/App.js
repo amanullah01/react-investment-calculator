@@ -40,7 +40,7 @@ function App() {
       <Header />
       <InvestmentForm onSubmitInvestmentForm={calculateHandler} />
 
-      {!userInput && <p style={{ "text-align": "center" }}>No data found</p>}
+      {!userInput && <p style={{ textAlign: "center" }}>No data found</p>}
       {userInput && (
         <InvestmentLists
           data={yearlyData}
