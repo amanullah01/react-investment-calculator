@@ -30,7 +30,7 @@ const InvestmentForm = (props) => {
   const inputHandler = (input, value) => {
     console.log(input, value);
     setUserInput((prevInput) => {
-      return { ...prevInput, [input]: value };
+      return { ...prevInput, [input]: +value };
     });
   };
 
