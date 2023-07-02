@@ -2,7 +2,7 @@ import React from "react";
 import InvestmentList from "./InvestmentList";
 import styles from "./InvestmentLists.module.css";
 
-const InvestmentLists = () => {
+const InvestmentLists = (props) => {
   return (
     <table className={styles.result}>
       <thead>
@@ -15,7 +15,13 @@ const InvestmentLists = () => {
         </tr>
       </thead>
       <tbody>
-        <InvestmentList />
+        {props.data.map((yearData) => (
+          <InvestmentList
+            key={yearData.year}
+            yearData={yearData}
+            initialInvestment={props.initialInvestment}
+          />
+        ))}
       </tbody>
     </table>
   );

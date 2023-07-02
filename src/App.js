@@ -6,13 +6,13 @@ import InvestmentLists from "./components/InvestmentTable/InvestmentLists";
 function App() {
   const [userInput, setUserInput] = useState(null);
 
+  const yearlyData = [];
+
   const calculateHandler = (userInput) => {
     setUserInput(userInput);
   };
 
   if (userInput) {
-    const yearlyData = [];
-
     let currentSavings = +userInput["current-savings"];
     const yearlyContribution = +userInput["yearly-contribution"];
     const expectedReturn = +userInput["expected-return"] / 100;
@@ -39,9 +39,14 @@ function App() {
     <div>
       <Header />
       <InvestmentForm onSubmitInvestmentForm={calculateHandler} />
-      {/* Todo: Show below table conditionally (only once result data is available) */}
-      {/* Show fallback text if no data is available */}
-      <InvestmentLists />
+
+      {!userInput && <p>No data found</p>}
+      {userInput && (
+        <InvestmentLists
+          data={yearlyData}
+          initialInvestment={userInput["current-savings"]}
+        />
+      )}
     </div>
   );
 }

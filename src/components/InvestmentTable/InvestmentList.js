@@ -1,13 +1,17 @@
 import React from "react";
 
-const InvestmentList = () => {
+const InvestmentList = (props) => {
   return (
     <tr>
-      <td>YEAR NUMBER</td>
-      <td>TOTAL SAVINGS END OF YEAR</td>
-      <td>INTEREST GAINED IN YEAR</td>
-      <td>TOTAL INTEREST GAINED</td>
-      <td>TOTAL INVESTED CAPITAL</td>
+      <td>{props.yearData.year}</td>
+      <td>{props.yearData.savingsEndOfYear}</td>
+      <td>{props.yearData.yearlyInterest}</td>
+      <td>
+        {props.yearData.savingsEndOfYear -
+          props.initialInvestment -
+          props.yearData.yearlyContribution * props.yearData.year}
+      </td>
+      <td>{props.initialInvestment}</td>
     </tr>
   );
 };
