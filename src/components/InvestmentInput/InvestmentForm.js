@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Card from "../UI/Card";
 import Input from "../UI/Input";
@@ -6,7 +6,16 @@ import Button from "../UI/Button";
 
 import styles from "./InvestmentForm.module.css";
 
+const initialInput = {
+  "current-savings": 500,
+  "yearly-contribution": 25000,
+  "expected-return": 7,
+  duration: 10,
+};
+
 const InvestmentForm = () => {
+  const [userInput, setUserInput] = useState(initialInput);
+
   const formSubmitHandler = (event) => {
     event.preventDefault();
     console.log("SUBMITTED");
@@ -15,10 +24,14 @@ const InvestmentForm = () => {
   const formResetHandler = (event) => {
     event.preventDefault();
     console.log("RESET");
+    setUserInput(initialInput);
   };
 
   const inputHandler = (input, value) => {
     console.log(input, value);
+    setUserInput((prevInput) => {
+      return { ...prevInput, [input]: value };
+    });
   };
 
   return (
@@ -32,6 +45,7 @@ const InvestmentForm = () => {
             }
             type="number"
             id="current-savings"
+            value={userInput["current-savings"]}
           />
         </p>
         <p>
@@ -42,6 +56,7 @@ const InvestmentForm = () => {
             }
             type="number"
             id="yearly-contribution"
+            value={userInput["yearly-contribution"]}
           />
         </p>
       </Card>
@@ -56,6 +71,7 @@ const InvestmentForm = () => {
             }
             type="number"
             id="expected-return"
+            value={userInput["expected-return"]}
           />
         </p>
         <p>
@@ -64,6 +80,7 @@ const InvestmentForm = () => {
             onChange={(event) => inputHandler("duration", event.target.value)}
             type="number"
             id="duration"
+            value={userInput["duration"]}
           />
         </p>
       </Card>
