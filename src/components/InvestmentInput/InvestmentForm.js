@@ -1,6 +1,7 @@
 import React from "react";
 
 import Card from "../UI/Card";
+import Input from "../UI/Input";
 import Button from "../UI/Button";
 
 import styles from "./InvestmentForm.module.css";
@@ -11,11 +12,11 @@ const InvestmentForm = () => {
       <Card className={`${styles["input-group "]}`}>
         <p>
           <label htmlFor="current-savings">Current Savings ($)</label>
-          <input type="number" id="current-savings" />
+          <Input type="number" id="current-savings" />
         </p>
         <p>
           <label htmlFor="yearly-contribution">Yearly Savings ($)</label>
-          <input type="number" id="yearly-contribution" />
+          <Input type="number" id="yearly-contribution" />
         </p>
       </Card>
       <Card className={`${styles["input-group "]}`}>
@@ -23,11 +24,11 @@ const InvestmentForm = () => {
           <label htmlFor="expected-return">
             Expected Interest (%, per year)
           </label>
-          <input type="number" id="expected-return" />
+          <Input type="number" id="expected-return" />
         </p>
         <p>
           <label htmlFor="duration">Investment Duration (years)</label>
-          <input type="number" id="duration" />
+          <Input type="number" id="duration" />
         </p>
       </Card>
       <p className={styles.actions}>
