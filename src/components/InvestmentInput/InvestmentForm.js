@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Card from "../UI/Card";
-import Input from "../UI/Input";
+// import Input from "../UI/Input";
 import Button from "../UI/Button";
 
 import styles from "./InvestmentForm.module.css";
@@ -13,12 +13,12 @@ const initialInput = {
   duration: 10,
 };
 
-const InvestmentForm = () => {
+const InvestmentForm = (props) => {
   const [userInput, setUserInput] = useState(initialInput);
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
-    console.log("SUBMITTED");
+    props.onSubmitInvestmentForm(userInput);
   };
 
   const formResetHandler = (event) => {
