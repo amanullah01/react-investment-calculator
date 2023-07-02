@@ -7,8 +7,8 @@ import Button from "../UI/Button";
 import styles from "./InvestmentForm.module.css";
 
 const initialInput = {
-  "current-savings": 500,
-  "yearly-contribution": 25000,
+  "current-savings": 10000,
+  "yearly-contribution": 1200,
   "expected-return": 7,
   duration: 10,
 };
@@ -36,7 +36,7 @@ const InvestmentForm = (props) => {
 
   return (
     <form onSubmit={formSubmitHandler} className={styles.form}>
-      <Card className={`${styles["input-group "]}`}>
+      <Card className={`${styles["input-group"]}`}>
         <p>
           <label htmlFor="current-savings">Current Savings ($)</label>
           <input

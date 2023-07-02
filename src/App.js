@@ -25,9 +25,9 @@ function App() {
       yearlyData.push({
         // feel free to change the shape of the data pushed to the array!
         year: i + 1,
-        yearlyInterest: yearlyInterest,
-        savingsEndOfYear: currentSavings,
-        yearlyContribution: yearlyContribution,
+        yearlyInterest: +yearlyInterest,
+        savingsEndOfYear: +currentSavings,
+        yearlyContribution: +yearlyContribution,
       });
     }
 
@@ -40,7 +40,7 @@ function App() {
       <Header />
       <InvestmentForm onSubmitInvestmentForm={calculateHandler} />
 
-      {!userInput && <p>No data found</p>}
+      {!userInput && <p style={{ "text-align": "center" }}>No data found</p>}
       {userInput && (
         <InvestmentLists
           data={yearlyData}
